@@ -18,7 +18,7 @@ class MultiPassController extends Controller
             "return_to" => "https://hoge.myshopify.com/" //リダイレクト先URL
         );
 
-        $multipass = new ShopifyMultiController("multipass secret from shop admin"); //キーを使ってインスタンスを作成
+        $multipass = new ShopifyMultiController(env('SHOPIFY_MULTIPASS_SECRET')); //キーを使ってインスタンスを作成
 
         $token = $multipass->generate_token($customer_data); //tokenの作成
 
